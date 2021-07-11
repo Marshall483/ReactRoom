@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
-export default class First extends Component {
+export default class Second extends Component {
     constructor(props) {
         super(props)
     
         this.state = {
+             
+
         }
     }
     
@@ -12,11 +14,10 @@ export default class First extends Component {
         return (
 
             <div>
-                <h1>First</h1>
 
-                <input 
-                    value={this.props.input} 
-                    onChange={this.props.handleChange} />
+                <h1>Second</h1>
+                
+                <p>{this.props.input}</p>
 
             </div>
 
