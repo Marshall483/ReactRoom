@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import First from './Fscomponent.js'
-import Second from './SecondFsComp.js'
+// import Second from './SecondFsComp.js'
 
 // import { Button } from '@material-ui/core';
 // import './styles.css';
@@ -11,16 +11,15 @@ export default class ClassComp extends Component {
         super(props);
     
         this.state = {
-            inputValue: 'Default Value'
+            name: 'Button not pressed.'
         }
 
-        this.handleChange = this.handleChange.bind(this);
+        this.onPress = this.onPress.bind(this);
     }
 
-    handleChange(event) {
-
+    onPress = (value) => {
         this.setState({
-            inputValue: event.target.value
+            name: value
         })
     }
 
@@ -29,15 +28,11 @@ export default class ClassComp extends Component {
         return(
             <div>
 
-                <First 
-                    input={this.state.inputValue}
-                    handleChange={this.handleChange} />
+                <p>Update {this.state.name}</p>
 
-                <Second 
-                    input={this.state.inputValue} />
+                <First undateData={this.onPress} />
 
             </div>
         )
-   
     }
 }

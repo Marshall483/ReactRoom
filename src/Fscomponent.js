@@ -5,6 +5,7 @@ export default class First extends Component {
         super(props)
     
         this.state = {
+            name: 'Button pressed.'
         }
     }
     
@@ -12,11 +13,10 @@ export default class First extends Component {
         return (
 
             <div>
-                <h1>First</h1>
 
-                <input 
-                    value={this.props.input} 
-                    onChange={this.props.handleChange} />
+                <button 
+                    value="Push"
+                    onClick={() => {this.props.undateData(this.state.name)}} />
 
             </div>
 
