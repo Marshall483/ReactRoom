@@ -1,4 +1,14 @@
 import React, { Component } from 'react';
+import { 
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
+import Home from './Home.js'
+import Users from './Users.js';
+import About from './About.js';
+
 // import First from './Fscomponent.js'
 // import Second from './SecondFsComp.js'
 
@@ -11,53 +21,32 @@ export default class ClassComp extends Component {
         super(props);
     
         this.state = {
-            error: null,
-            isLoaded: false,
-            items: []
+
         }
 
-    }
-
-    componentDidMount(){
-        fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink")
-        .then(res => res.json())
-        .then(
-            (res) => {
-                this.setState({
-                    items: res.drinks,
-                    isLoaded: true
-                });
-            },
-            (error) => {
-                this.setState({
-                    isLoaded: true,
-                    error
-                });
-            }
-        )
     }
 
     render()
     {
-        const {error, isLoaded, items} = this.state;
+        return(
+            <Router>
+                <div>
+                    <nav>
+                        <ul>
+                            <li> <Link to="/">Home</Link></li>
+                            <li> <Link to="/about">About</Link></li>
+                            <li> <Link to="/users">Users</Link></li>
+                        </ul>
+                    </nav>
 
-        if(error){
-            return(<p>{error.message}.</p>)
-        }
-        else if (!isLoaded){
-            return(<p>Loading was failed.</p>)
-        }
-        else{
-            return(
-                <ul>
-                    {items.map( (item) => (
-                        <li key={item.name}>
-                            {item.strDrink}
-                            <img height="64" width="64" alt="SexyDrink" src={item.strDrinkThumb} />
-                        </li>
-                    ))}
-                </ul>
-            )
-        }
+                    <Switch>
+                        <Route path="/About"> <About /> </Route>
+                        <Route path="/Users"> <Users /> </Route>
+                        <Route path="/"> <Home /> </Route>
+                    </Switch>
+
+                </div>
+            </Router>
+        );
     }
 }
