@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import First from './Fscomponent.js'
+// import First from './Fscomponent.js'
 // import Second from './SecondFsComp.js'
 
 // import { Button } from '@material-ui/core';
@@ -11,28 +11,53 @@ export default class ClassComp extends Component {
         super(props);
     
         this.state = {
-            name: 'Button not pressed.'
+            error: null,
+            isLoaded: false,
+            items: []
         }
 
-        this.onPress = this.onPress.bind(this);
     }
 
-    onPress = (value) => {
-        this.setState({
-            name: value
-        })
+    componentDidMount(){
+        fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink")
+        .then(res => res.json())
+        .then(
+            (res) => {
+                this.setState({
+                    items: res.drinks,
+                    isLoaded: true
+                });
+            },
+            (error) => {
+                this.setState({
+                    isLoaded: true,
+                    error
+                });
+            }
+        )
     }
 
     render()
     {
-        return(
-            <div>
+        const {error, isLoaded, items} = this.state;
 
-                <p>Update {this.state.name}</p>
-
-                <First undateData={this.onPress} />
-
-            </div>
-        )
+        if(error){
+            return(<p>{error.message}.</p>)
+        }
+        else if (!isLoaded){
+            return(<p>Loading was failed.</p>)
+        }
+        else{
+            return(
+                <ul>
+                    {items.map( (item) => (
+                        <li key={item.name}>
+                            {item.strDrink}
+                            <img height="64" width="64" alt="SexyDrink" src={item.strDrinkThumb} />
+                        </li>
+                    ))}
+                </ul>
+            )
+        }
     }
 }
