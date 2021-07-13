@@ -1,4 +1,5 @@
 import React from 'react';
+import RegisterButton from '../RegLog/RegBtn';
 import Button from '@material-ui/core/Button';
 import { AppBar, Container, Toolbar, IconButton, Typography, Box } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -28,7 +29,7 @@ export default function Header() {
             <Typography variant='h7' className={headerStyles.title}>Имя пользователя</Typography>
 
             <Box mr={3}>
-                <Button color='black' variant='outlined'>Войти</Button>
+              <RegisterButton />
             </Box>
 
             <Button color='secondary' variant='contained'>Регистрация</Button>
