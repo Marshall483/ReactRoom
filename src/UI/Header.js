@@ -17,25 +17,25 @@ export default function Header() {
     const headerStyles = setStyles()
     return (
         <AppBar position='fixed' style={{ backgroundColor: 'gray'}} >
-                <Container fixed>
+          <Container fixed>
 
-                    <Toolbar >
+            <Toolbar >
 
-                    <IconButton edge='start' className={headerStyles.menuButton}>
-                        <MenuIcon />
-                    </IconButton>
+            <IconButton edge='start' className={headerStyles.menuButton}>
+                <MenuIcon />
+            </IconButton>
 
-                    <Typography variant='h7' className={headerStyles.title}>Мастер бронирования переговорных</Typography>
+            <Typography variant='h7' className={headerStyles.title}>Мастер бронирования переговорных</Typography>
 
-                    <Box mr={3}>
-                        <Button color='black' variant='outlined'>Войти</Button>
-                    </Box>
+            <Box mr={3}>
+                <Button color='black' variant='outlined'>Войти</Button>
+            </Box>
 
-                    <Button color='secondary' variant='contained'>Регистрация</Button>
+            <Button color='secondary' variant='contained'>Регистрация</Button>
 
-                    </Toolbar>
-                    
-                </Container>
-            </AppBar>
+            </Toolbar>
+
+          </Container>      
+        </AppBar>
     )
 }
