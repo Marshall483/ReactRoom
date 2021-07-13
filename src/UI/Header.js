@@ -16,7 +16,7 @@ const setStyles = makeStyles((theme) => ({
 export default function Header() {
     const headerStyles = setStyles()
     return (
-        <AppBar position='fixed' style={{ backgroundColor: 'gray'}} >
+        <AppBar position='fixed' style={{ backgroundColor: '#212121'}} >
           <Container fixed>
 
             <Toolbar >
@@ -25,7 +25,7 @@ export default function Header() {
                 <MenuIcon />
             </IconButton>
 
-            <Typography variant='h7' className={headerStyles.title}>Мастер бронирования переговорных</Typography>
+            <Typography variant='h7' className={headerStyles.title}>Имя пользователя</Typography>
 
             <Box mr={3}>
                 <Button color='black' variant='outlined'>Войти</Button>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Grid, Typography, Paper, Button } from '@material-ui/core';
+import { Container, Grid, Typography, Paper} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const setStyles = makeStyles((theme) => ({
@@ -14,7 +14,8 @@ const setStyles = makeStyles((theme) => ({
     },
     postContent: {
         position: 'relative',
-        padding: theme.spacing(10)
+        marginTop: theme.spacing(7),
+        padding: theme.spacing(3)
     },
     overlay: {
         position: 'absolute', 
@@ -47,20 +48,6 @@ export default function TopImage() {
                                 gutterBottom> 
                                 Мастер бронирования переговорных
                             </Typography>
-
-                            <Typography
-                                component='h5'
-                                color='inherit'
-                                paragraph>
-                                Lorem Ipsum dolor sit amet comsectetur,
-                                adipiscing elit. 
-                            </Typography>
-
-                            <Button
-                                variant='contained'
-                                color='secondary'>
-                                Забронировать
-                            </Button>
 
                         </div>
                     </Grid>
