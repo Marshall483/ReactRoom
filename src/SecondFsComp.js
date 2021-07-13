@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
-export default class First extends Component {
+export default class Second extends Component {
     constructor(props) {
         super(props)
     
         this.state = {
-            name: 'Button pressed.'
+             
+
         }
     }
     
@@ -14,9 +15,9 @@ export default class First extends Component {
 
             <div>
 
-                <button 
-                    value="Push"
-                    onClick={() => {this.props.undateData(this.state.name)}} />
+                <h1>Second</h1>
+                
+                <p>{this.props.input}</p>
 
             </div>
 
